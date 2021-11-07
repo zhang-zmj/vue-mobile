@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Notify, Toast } from 'vant';
 import router from '../router';
 
+
 export function request(config) {
 
     const instance = axios.create({
@@ -28,11 +29,11 @@ export function request(config) {
     }, err=>{
 
         // 如果有需要授权才可以访问的接口， 统一去login授权
-        if(err.response.status == '401') {
+        if(err.response.status == '401' && $store.state.isFirst == true) {
             Toast.fail('请先登录');
             router.push({path:'/login'});
         }
-
+        $store.state.isFirst = true;
         // 如果有错误，这里面会去处理，显示错误信息
         Notify(err.response.data.errors[Object.keys(err.response.data.errors)[0]][0])
 

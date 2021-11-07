@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import store from '../store';
 import { Notify,Toast } from 'vant';
 
@@ -23,7 +23,8 @@ const routes = [
     name: 'DefaultHome',
     component: Home,
     meta: {
-      title: "图书兄弟"
+      title: "图书兄弟",
+      istrun:true
     }
   },
   {
@@ -31,7 +32,8 @@ const routes = [
     name: 'Home',
     component: Home,
     meta: {
-      title: "图书兄弟"
+      title: "图书兄弟",
+      istrun:true
     }
   },
   {
@@ -39,7 +41,9 @@ const routes = [
     name: 'Category',
     component: Category,
     meta: {
-      title: "图书兄弟-商品分类"
+      title: "图书兄弟-商品分类",
+      istrun:true
+      
     }
   },
   {
@@ -56,7 +60,8 @@ const routes = [
     component: ShopCart,
     meta: {
       title: "图书兄弟-购物车",
-      isAuthRequired: true
+      isAuthRequired: true,
+      istrun:true
     }
   },
   {
@@ -65,7 +70,8 @@ const routes = [
     component: Profile,
     meta: {
       title: "图书兄弟-个人中心",
-      isAuthRequired: true
+      isAuthRequired: true,
+      istrun:true
     }
   },
   {
@@ -74,6 +80,7 @@ const routes = [
     component: Register,
     meta: {
       title: "图书兄弟-用户注册"
+
     }
   },
   {
@@ -135,7 +142,12 @@ const routes = [
 
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+
+  history: createWebHashHistory(process.env.BASE_URL),
+
+
+
+  // history: createWebHistory(process.env.BASE_URL),
   routes
 })
 

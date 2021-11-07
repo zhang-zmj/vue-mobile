@@ -7,7 +7,8 @@ const state = {
   user: {
     isLogin:window.localStorage.getItem('token') ? true : false
   },
-  cartCount:0
+  cartCount:0,
+  isFirst: false
 }
 
 export default createStore({
